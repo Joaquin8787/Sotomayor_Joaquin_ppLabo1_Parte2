@@ -15,9 +15,9 @@ int informarAvionporMarca(eAvion aAviones[],int tamA,eViaje aViajes[],int tamV,e
 			int retorno = -1;
 			int idMarca;
 			int posicion;
-			printf("---------- MOSTRAR AVIONES DE LA MISMA MARCA ---------- \n");
 			if(aAviones != NULL && aViajes != NULL && aMarcas != NULL && tamA > 0 && tamV > 0 && tamM > 0)
 			{
+				     printf("---------- MOSTRAR AVIONES DE LA MISMA MARCA ---------- \n");
 				     mostrarMarcas(aMarcas,tamM);
 				     joaquin_getNumero(&idMarca,"Ingrese el id de la marca: ", "ERROR. el id de la marca debe ser a partir del 1000 \n",1000,2000,2);
 				     posicion = buscarMarcaId(aMarcas,tamM, &idMarca);
@@ -141,6 +141,7 @@ int mostrarMatriculaYMarcaNeuquen(eAvion aAviones[], int tamA, eViaje aViajes[],
 	int retorno = -1;
 	char descripcion[TEXT_SIZED];
 	if(aAviones != NULL && tamA >0 && aViajes != NULL && tamV >0 && aMarcas != NULL && tamM >0){
+		printf("------ AVIONES QUE VIAJAN A NEUQUEN ----- \n");
 		printf("ID       MARTRICULA       MARCA  \n");
 		for(int i=0; i<tamA;i++){
 			if(aAviones[i].idViaje == 102){

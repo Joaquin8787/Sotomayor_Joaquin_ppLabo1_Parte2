@@ -112,32 +112,35 @@ int main(void) {
 			getchar();
 		break;
 		case 'g':
-			switch(menuInformes()){
-			case 1:
-				 mostrarAvionesBoing(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA,arrayMarcas,TAM_MAR);
-				 break;
-			case 2:
+			if(arrayVacioAvion(arrayAviones,TAM_AVION) == -1){
+				switch(menuInformes()){
+				case 1:
+				mostrarAvionesBoing(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA,arrayMarcas,TAM_MAR);
+				break;
+				case 2:
 				informarAvionporMarca(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA,arrayMarcas,TAM_MAR);
-			break;
-			case 3:
-				printf("------ AVIONES QUE VIAJAN A NEUQUEN ----- \n");
+				break;
+				case 3:
 				if(mostrarMatriculaYMarcaNeuquen(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA,arrayMarcas,TAM_MAR)== -1){
-					printf("No hay aviones que viaje a Neuquen \n");
+				printf("No hay aviones que viaje a Neuquen \n");
 				}
 
-			break;
-			case 4:
-				 mostrarKmsRecorridosPorATR(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA,arrayMarcas,TAM_MAR);
-			break;
-			case 5:
-			informarCantidadAsientosporModelo(arrayAviones,TAM_AVION);
-			break;
-			case 6:
-			promedioAvionesPorFecha(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA);
-			break;
+				break;
+				case 4:
+				mostrarKmsRecorridosPorATR(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA,arrayMarcas,TAM_MAR);
+				break;
+				case 5:
+				informarCantidadAsientosporModelo(arrayAviones,TAM_AVION);
+				break;
+				case 6:
+				promedioAvionesPorFecha(arrayAviones,TAM_AVION,arrayViajes,TAM_VIA);
+				break;
 
+				}
 			}
-
+			else{
+				printf("Primero debe dar de alta algun avion \n");
+			}
 	   break;
 		case 'H':
 					joaquin_getCaracter(&salir, "Esta seguro que quiere salir? \n (s/n): ", "ERROR!!!\n",'n','s', 2);
